@@ -32,6 +32,27 @@ exports.config = {
         ],
       },
     },
+    {
+      maxInstances: 1,
+      browserName: 'firefox',
+      'moz:firefoxOptions': {
+        args: ['-headless'],
+        prefs: {
+          // Prevent opening the extension tabs on startup
+          'extensions.enabledScopes': 0,
+        },
+      },
+    },
+    {
+      browserName: 'MicrosoftEdge',
+      acceptInsecureCerts: true,
+      port: 5555,
+    },
+    {
+      browserName: 'safari',
+      acceptInsecureCerts: true,
+      port: 5555,
+    },
   ],
 
   // Level of logging verbosity: trace | debug | info | warn | error | silent
@@ -65,7 +86,7 @@ exports.config = {
   // Default request retries count
   connectionRetryCount: 3,
 
-  services: ['selenium-standalone'],
+  services: ['docker'],
 
   framework: 'cucumber',
 
