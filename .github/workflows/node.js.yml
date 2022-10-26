@@ -19,8 +19,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 18.3.0
-
-      - name: actions/checkout@v2
       - run: npm install
       # run utility services in the background
       # using docker-compose (see docker-compose.yml file)
