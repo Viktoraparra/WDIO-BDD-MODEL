@@ -85,7 +85,7 @@ exports.config = {
   // Default request retries count
   connectionRetryCount: 3,
 
-  services: ['selenium-standalone'],
+  services: ['docker'],
 
   framework: 'cucumber',
 
