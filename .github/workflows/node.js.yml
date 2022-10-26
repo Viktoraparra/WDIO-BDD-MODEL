@@ -22,7 +22,7 @@ jobs:
 
       - uses: actions/checkout@v2
       - name: Run docker-compose
-        run: docker-compose up --exit-code-from automation
+        run: docker-compose up
 
       - run: npm install
       - run: npm run test:regression
@@ -30,4 +30,10 @@ jobs:
         run: npm i -g allure-commandline
       - name: Generate Allure Reports
         run: npm run generate-report
-      - run: ls -lrt
+
+      - name: upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: Allure-Report
+          path: allure-report
