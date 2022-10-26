@@ -1,5 +1,4 @@
 import { Given, When, Then } from '@cucumber/cucumber';
-
 import authPage from '../pageobjects/auth.page';
 import HomePage from '../pageobjects/home.page';
 import allureReporter from '@wdio/allure-reporter';
