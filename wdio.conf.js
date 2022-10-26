@@ -32,6 +32,26 @@ exports.config = {
         ],
       },
     },
+    // {
+    //   maxInstances: 1,
+    //   browserName: 'firefox',
+    //   'moz:firefoxOptions': {
+    //     args: ['-headless'],
+    //     prefs: {
+    //       // Prevent opening the extension tabs on startup
+    //       'extensions.enabledScopes': 0,
+    //     },
+    //   },
+    // },
+    // {
+    //   browserName: 'MicrosoftEdge',
+    //   acceptInsecureCerts: true,
+    // },
+    // {
+    //   browserName: 'safari',
+    //   acceptInsecureCerts: true,
+    // }
+    ,
   ],
 
   // Level of logging verbosity: trace | debug | info | warn | error | silent
