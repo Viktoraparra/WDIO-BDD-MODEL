@@ -14,18 +14,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/SetupNode
+      - uses: actions/checkout@v3
       - name: SetUp NodeJs
         uses: actions/setup-node@v1
         with:
           node-version: 18.3.0
 
-      name: actions/install
+      - name: actions/checkout@v3
       - run: npm install
       # run utility services in the background
       # using docker-compose (see docker-compose.yml file)
 
-      - uses: actions/DockerCompose
+      - uses: actions/checkout@v3
       - name: Run docker-compose
         run: docker-compose up -d
 
