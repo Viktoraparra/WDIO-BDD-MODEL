@@ -20,9 +20,49 @@ jobs:
         with:
           node-version: 16.3.0
 
+      # run utility services in the background
+      # using docker-compose (see docker-compose.yml file)
       - uses: actions/checkout@v2
       - name: Run docker-compose
-        run: docker-compose up
+        run: docker-compose up -d
+
+      - name: Tests
+        continue-on-error: true
+        run: npm run test
+
+      - name: Generate Report
+        if: always()
+        run: npm run allure-report-generate
+      - name: Publishing Allure artifact to Github Actions
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: allure-report
+          path: allure-report/
+      - name: Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+      - name: Test marketplace action
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        id: allure-report
+        with:
+          allure_results: allure-results
+          gh_pages: gh-pages
+          allure_report: allure-report
+          allure_history: allure-history
+          keep_reports: 20
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
 
       - run: npm install
       - run: npm run test:regression
