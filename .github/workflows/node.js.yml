@@ -18,7 +18,7 @@ jobs:
       - name: SetUp NodeJs
         uses: actions/setup-node@v1
         with:
-          node-version: 16.3.0
+          node-version: 18.3.0
 
       # run utility services in the background
       # using docker-compose (see docker-compose.yml file)
@@ -27,8 +27,8 @@ jobs:
         run: docker-compose up -d
 
       - name: Tests
-        continue-on-error: true
-        run: npm run test
+        continue-on-error: false
+        run: npm run test:regression
 
       - name: Generate Report
         if: always()
