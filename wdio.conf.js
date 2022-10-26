@@ -46,13 +46,12 @@ exports.config = {
     {
       browserName: 'MicrosoftEdge',
       acceptInsecureCerts: true,
-      port: 5555,
     },
-    {
-      browserName: 'safari',
-      acceptInsecureCerts: true,
-      port: 5555,
-    },
+    // {
+    //   browserName: 'safari',
+    //   acceptInsecureCerts: true,
+    // }
+    ,
   ],
 
   // Level of logging verbosity: trace | debug | info | warn | error | silent
