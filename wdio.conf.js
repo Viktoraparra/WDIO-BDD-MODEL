@@ -22,15 +22,15 @@ exports.config = {
       maxInstances: 1,
       acceptInsecureCerts: true,
       browserName: 'chrome',
-      'goog:chromeOptions': {
-        args: [
-          '--headless',
-          '--no-sandbox',
-          '--disable-gpu',
-          '--disable-dev-shm-usage',
-          '--window-size=1920,1080',
-        ],
-      },
+      // 'goog:chromeOptions': {
+      //   args: [
+      //     '--headless',
+      //     '--no-sandbox',
+      //     '--disable-gpu',
+      //     '--disable-dev-shm-usage',
+      //     '--window-size=1920,1080',
+      //   ],
+      // },
     },
     // {
     //   maxInstances: 1,
